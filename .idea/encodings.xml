@@ -5,6 +5,10 @@
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/submarino-comuns/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/submarino-comuns/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/submarino-files/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/submarino-files/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/submarino-fiscal/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/submarino-fiscal/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/submarino-http-client/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/submarino-http-client/src/main/resources" charset="UTF-8" />
   </component>
