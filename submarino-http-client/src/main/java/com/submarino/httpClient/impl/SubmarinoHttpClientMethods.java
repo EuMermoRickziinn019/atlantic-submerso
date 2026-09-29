@@ -37,6 +37,19 @@ public class SubmarinoHttpClientMethods<T> implements SubmarinoHttpClient<T> {
         }
     }
 
+    private void validateResponse(HttpResponse<String> response) {
+        int statusCode = response.statusCode();
+        if (statusCode >= 200 && statusCode < 300) {
+            return;
+        }
+        throw new RuntimeException(
+                "Erro HTTP " +
+                        statusCode +
+                        ": " +
+                        response.body()
+        );
+    }
+
     public T get(String url, Class<T> responseType, Map<String, String> headers) {
         HttpRequest.Builder builder = HttpRequest.newBuilder()
                 .uri(URI.create(url))
@@ -48,6 +61,7 @@ public class SubmarinoHttpClientMethods<T> implements SubmarinoHttpClient<T> {
         try {
             HttpResponse<String> response =
                     this.httpClient.send(builder.build(), HttpResponse.BodyHandlers.ofString());
+            validateResponse(response);
             return convertResponse(response.body(), responseType);
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException("Erro ao realizar requisição HTTP", e);
@@ -66,6 +80,7 @@ public class SubmarinoHttpClientMethods<T> implements SubmarinoHttpClient<T> {
             }
             HttpResponse<String> response =
                     this.httpClient.send(builder.build(), HttpResponse.BodyHandlers.ofString());
+            validateResponse(response);
             return convertResponse(response.body(), responseType);
         } catch (RuntimeException | InterruptedException | IOException e) {
             throw new RuntimeException("Erro na chamada POST", e);
@@ -83,6 +98,7 @@ public class SubmarinoHttpClientMethods<T> implements SubmarinoHttpClient<T> {
         try {
             HttpResponse<String> response =
                     this.httpClient.send(builder.build(), HttpResponse.BodyHandlers.ofString());
+            validateResponse(response);
             return convertResponse(response.body(), responseType);
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException("Erro ao realizar requisição HTTP", e);
@@ -101,6 +117,7 @@ public class SubmarinoHttpClientMethods<T> implements SubmarinoHttpClient<T> {
             }
             HttpResponse<String> response =
                     this.httpClient.send(builder.build(), HttpResponse.BodyHandlers.ofString());
+            validateResponse(response);
             return convertResponse(response.body(), responseType);
         } catch (RuntimeException | InterruptedException | IOException e) {
             throw new RuntimeException("Erro na chamada POST", e);
