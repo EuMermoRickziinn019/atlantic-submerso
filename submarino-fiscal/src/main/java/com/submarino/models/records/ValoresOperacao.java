@@ -1,4 +1,12 @@
 package com.submarino.models.records;
 
-public record ValoresOperacao() {
+import java.math.BigDecimal;
+
+public record ValoresOperacao(
+    BigDecimal valorProdutos,
+    BigDecimal frete,
+    BigDecimal seguro,
+    BigDecimal outrasDespesas,
+    BigDecimal desconto
+) {
 }

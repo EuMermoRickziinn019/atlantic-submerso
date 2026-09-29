@@ -1,4 +1,7 @@
 package com.submarino.models.records;
 
-public record CFOP() {
+public record CFOP(
+    String codigo,
+    String descricao
+) {
 }

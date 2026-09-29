@@ -19,7 +19,7 @@ public class SubmarinoHttpClientMethods<T> implements SubmarinoHttpClient<T> {
     private final HttpClient httpClient = HttpClient.newHttpClient();
     private final JsonConvert jsonConvertComuns = new JsonConvertComuns();
     private final SubmarinoXML xmlConvertComuns = new SubmarinoXMLImpl();
-    private SubmarinoTypeResponse submarinoTypeResponse;
+    private final SubmarinoTypeResponse submarinoTypeResponse;
 
     public SubmarinoHttpClientMethods(SubmarinoTypeResponse typeResponse) {
         this.submarinoTypeResponse = typeResponse;

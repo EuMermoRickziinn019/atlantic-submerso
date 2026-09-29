@@ -1,4 +1,8 @@
 package com.submarino.models.records;
 
-public record ClassificacaoFiscal() {
+import com.submarino.models.enums.OperacaoOrigemDestino;
+
+public record ClassificacaoFiscal(
+    OperacaoOrigemDestino operacaoOrigemDestino
+) {
 }
